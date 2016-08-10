@@ -1,11 +1,8 @@
 from Crypto.Cipher import AES
-import hashlib
 
-key = '123456789'
-h = hashlib.md5()
-h.update(key.encode())
-key = h.hexdigest()
-# comprimento multiplo de 16 bytes
+# comprimento deve ser multiplo de 16 bytes
+key = '1234567890123456'
+# comprimento deve ser multiplo de 16 bytes
 msg = "Mensagem txtplan"
 cipher_suite = AES.new(key.encode())
 
