@@ -17,10 +17,12 @@ key = h.hexdigest()
 # comprimento nao multiplo de 16 bytes
 msg = "Nova mensagem txtplan"
 # uso de pad() para tornar a msg multiplo de 16 bytes
-msg = pad(msg)
+msgpad = pad(msg)
 cipher_suite = AES.new(key.encode())
 
 print("Texto a ser cifrado: ", msg)
-enc = cipher_suite.encrypt(msg)
+enc = cipher_suite.encrypt(msgpad)
 print("Texto cifrado: ", enc)
-print("Texto decifrado: ", cipher_suite.decrypt(enc).decode('utf-8'))
+dec = cipher_suite.decrypt(enc).decode('utf-8')
+dec = dec.strip('*')
+print("Texto decifrado: ", dec)
